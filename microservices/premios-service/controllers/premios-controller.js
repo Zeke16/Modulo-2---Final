@@ -95,7 +95,7 @@ const getPremiosByCategory = async (req, res) => {
 const getPremiosByCountry = async (req, res) => {
   let info = [];
 
-  db.all(`SELECT * FROM campeonatos WHERE pais_competencia = ${req.params.country} `, (err, rows) => {
+  db.all(`SELECT * FROM campeonatos WHERE pais_competencia LIKE '%${req.params.country}'`, (err, rows) => {
     if (err) {
       console.error(err.message);
     }
@@ -125,7 +125,7 @@ const getPremiosByReward = async (req, res) => {
 const getPremiosByScore = async (req, res) => {
   let info = [];
 
-  db.all(`SELECT * FROM campeonatos WHERE puntaje = ${req.params.score} `, (err, rows) => {
+  db.all(`SELECT * FROM campeonatos WHERE puntaje LIKE '${req.params.score}'`, (err, rows) => {
     if (err) {
       console.error(err.message);
     }
