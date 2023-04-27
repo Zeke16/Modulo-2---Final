@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "0218e994-98cb-4f25-8e84-37c7a17fee24",
+		"name": "Evaluacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21429832"
+	},
+	"item": [
+		{
+			"name": "Razas",
+			"item": [
+				{
+					"name": "Get razas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/razas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get razas by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/id/22"
+					},
+					"response": []
+				},
+				{
+					"name": "Get razas by raza",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/raza/Dalmatian"
+					},
+					"response": []
+				},
+				{
+					"name": "Get razas by color de pelo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/razas/pelo/Tricolor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get razas by pelo size",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/sizePelo/Corto"
+					},
+					"response": []
+				},
+				{
+					"name": "Get raza by origin country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/country/México"
+					},
+					"response": []
+				},
+				{
+					"name": "Get raza by life expectancy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/life/10"
+					},
+					"response": []
+				},
+				{
+					"name": "Get raza by type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/type/trabajo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get razas by accredited",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v2/razas/credito/-"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Premios",
+			"item": [
+				{
+					"name": "Get premios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/id/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by id campeon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/campeon/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/campeonato/2017"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by lugar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/lugar/Segundo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/category/Competencia"
+					},
+					"response": []
+				},
+				{
+					"name": "Get premios by country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/country/Estados Unidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get country by premio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/reward/1000"
+					},
+					"response": []
+				},
+				{
+					"name": "Get country by puntaje",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/premios/score/*****"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Perros",
+			"item": [
+				{
+					"name": "Get perros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/id/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros by raza",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/raza/Dalmatian"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros by peso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/peso/15.42"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/name/Mimi"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros by owner name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/ownerName/Sophie Dupont"
+					},
+					"response": []
+				},
+				{
+					"name": "Get perros owner country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/v2/perros/country/Mexico"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
