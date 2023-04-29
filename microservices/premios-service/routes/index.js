@@ -10,7 +10,9 @@ const {
   getPremiosByCategory,
   getPremiosByCountry,
   getPremiosByReward,
-  getPremiosByScore
+  getPremiosByScore,
+  getPremiosByLugarAndReward,
+  getPremiosByPromedio
 } = require("../controllers/premios-controller.js");
 
 router.get("/", getPremios);
@@ -22,4 +24,6 @@ router.get("/category/:category", getPremiosByCategory);
 router.get("/country/:country", getPremiosByCountry);
 router.get("/reward/:reward", getPremiosByReward);
 router.get("/score/:score", getPremiosByScore);
+router.get("/placeReward/", getPremiosByLugarAndReward)
+router.get("/promedio/", getPremiosByPromedio)
 module.exports = router;
