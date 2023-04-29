@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "6acc871a-962c-433a-902a-433473b7c204",
+		"name": "Modulo 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21429832"
+	},
+	"item": [
+		{
+			"name": "Get campeonatos by lugar and reward",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v2/premios/placeReward?lugar=Primero&premio==90000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"premios",
+						"placeReward"
+					],
+					"query": [
+						{
+							"key": "lugar",
+							"value": "Primero"
+						},
+						{
+							"key": "premio",
+							"value": "=90000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get campeonatos by premio promedio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v2/premios/promedio/Primero"
+			},
+			"response": []
+		}
+	]
+}
