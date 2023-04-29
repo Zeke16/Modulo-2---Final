@@ -43,7 +43,7 @@ const getPerrosByOwnerName = async (req, res) => {
 
 const getPerrosByOwnerCountry = async (req, res) => {
   const perrosByOwnerCountry = data.filter((perro) => {
-    return perro.pais_dueno == req.params.country;
+    return perro.pais_origen_dueno == req.params.country;
   });
   res.status(200).json({ data: perrosByOwnerCountry });
 };
