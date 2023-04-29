@@ -192,6 +192,25 @@ const getPremiosByPromedio = async (req, res) => {
   });
 };
 
+const getPremiosByIdAndChampion = async (req, res) => {
+  let info = [];
+
+  db.all(`SELECT * FROM campeonatos WHERE id = ${req.params.id} `, async (err, rows)  => {
+    if (err) {
+      console.error(err.message);
+    }
+    rows.forEach((row) => {
+      info.push(row)
+    });
+
+    let id_campeon = info[0].id_campeon;
+
+    let infoCampeon = await consumeAPI(`http://perros:3000/api/v2/perros/id/${id_campeon}`)
+    console.log(infoCampeon);
+    res.status(200).json({ data: info, campeon: infoCampeon.data })
+  });
+};
+
 module.exports = {
   getPremios,
   getPremiosById,
@@ -203,5 +222,6 @@ module.exports = {
   getPremiosByReward,
   getPremiosByScore,
   getPremiosByLugarAndReward,
-  getPremiosByPromedio
+  getPremiosByPromedio,
+  getPremiosByIdAndChampion
 };

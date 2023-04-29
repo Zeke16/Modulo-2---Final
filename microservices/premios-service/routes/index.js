@@ -12,7 +12,8 @@ const {
   getPremiosByReward,
   getPremiosByScore,
   getPremiosByLugarAndReward,
-  getPremiosByPromedio
+  getPremiosByPromedio,
+  getPremiosByIdAndChampion
 } = require("../controllers/premios-controller.js");
 
 router.get("/", getPremios);
@@ -26,4 +27,5 @@ router.get("/reward/:reward", getPremiosByReward);
 router.get("/score/:score", getPremiosByScore);
 router.get("/placeReward/", getPremiosByLugarAndReward)
 router.get("/promedio/:lugar", getPremiosByPromedio)
+router.get("/idAndCampeon/:id", getPremiosByIdAndChampion)
 module.exports = router;
