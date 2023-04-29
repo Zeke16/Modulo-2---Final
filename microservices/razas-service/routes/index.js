@@ -11,6 +11,7 @@ const {
   getRazaByLife,
   getRazaByType,
   getRazaByAccredited,
+  getRazaByAccreditedAndCampeonatos
 } = require("../controllers/razas-controller.js");
 
 router.get("/", getRazas);
@@ -22,4 +23,5 @@ router.get("/country/:country", getRazaByCountry);
 router.get("/life/:life", getRazaByLife);
 router.get("/type/:type", getRazaByType);
 router.get("/credito/:credito", getRazaByAccredited);
+router.get("/acreditadoRaza/:acreditado", getRazaByAccreditedAndCampeonatos);
 module.exports = router;

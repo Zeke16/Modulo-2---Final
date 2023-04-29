@@ -3,6 +3,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const { consumeAPI } = require("../helpers/fetch");
 const { cleanData } = require("../helpers/cleanData");
+const { log } = require("console");
 const logger = (message) => console.log(`Language Service: ${message}`);
 
 const getRazas = async (req, res) => {
@@ -14,7 +15,7 @@ const getRazas = async (req, res) => {
     })
     .on("end", () => {
       results = cleanData(results);
-      res.status(200).json({data: results });
+      res.status(200).json({ data: results });
     });
 };
 
@@ -150,6 +151,46 @@ const getRazaByAccredited = async (req, res) => {
     });
 };
 
+const getRazaByAccreditedAndCampeonatos = async (req, res) => {
+  let results = [];
+  fs.createReadStream("data/raza_info.csv")
+    .pipe(csv())
+    .on("data", (data) => {
+      results.push(data);
+    })
+    .on("end", async () => {
+      results = cleanData(results);
+      const razaByAccredited = []
+      results.forEach(element => {
+        if (element.acreditado == req.params.acreditado) {
+          razaByAccredited.push(element.raza)
+        }
+      })
+
+      let perrosByRaza = {};
+      for (let raza of razaByAccredited) {
+        let dataPerros = await consumeAPI(`http://perros:3000/api/v2/perros/raza/${raza}`);
+        perrosByRaza[raza] = dataPerros.data
+      }
+
+      let i = 0;
+      let razas = Object.keys(perrosByRaza);
+      let campeonatos = {};
+      for (let raza in perrosByRaza) {
+        for (let campeon of perrosByRaza[raza]){
+
+          let dataPerros = await consumeAPI(`http://premios:5000/api/v2/premios/campeon/${campeon.Id}`);
+          campeonatos[razas[i]] = dataPerros.data;
+        }
+        i++;
+      }
+
+      log(campeonatos)
+
+      res.status(200).json({ razas: razaByAccredited, perrosByRaza: perrosByRaza, campeonatosByRaza: campeonatos});
+    });
+};
+
 module.exports = {
   getRazas,
   getRazasById,
@@ -160,4 +201,5 @@ module.exports = {
   getRazaByLife,
   getRazaByType,
   getRazaByAccredited,
+  getRazaByAccreditedAndCampeonatos
 };

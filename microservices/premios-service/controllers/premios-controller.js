@@ -206,7 +206,6 @@ const getPremiosByIdAndChampion = async (req, res) => {
     let id_campeon = info[0].id_campeon;
 
     let infoCampeon = await consumeAPI(`http://perros:3000/api/v2/perros/id/${id_campeon}`)
-    console.log(infoCampeon);
     res.status(200).json({ data: info, campeon: infoCampeon.data })
   });
 };
