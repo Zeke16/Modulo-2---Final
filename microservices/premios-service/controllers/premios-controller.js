@@ -169,7 +169,6 @@ const getPremiosByLugarAndReward = async (req, res) => {
         return reward.premio < valor[1];
       } else if (String(condicion).includes("=")) {
         let valor = condicion.split("=");
-        console.log("igual");
         return reward.premio == valor[1];
       }
     })

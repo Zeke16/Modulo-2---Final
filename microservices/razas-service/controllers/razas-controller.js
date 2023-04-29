@@ -185,8 +185,6 @@ const getRazaByAccreditedAndCampeonatos = async (req, res) => {
         i++;
       }
 
-      log(campeonatos)
-
       res.status(200).json({ razas: razaByAccredited, perrosByRaza: perrosByRaza, campeonatosByRaza: campeonatos});
     });
 };
