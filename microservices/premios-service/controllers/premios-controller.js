@@ -188,6 +188,11 @@ const getPremiosByPromedio = async (req, res) => {
     rows.forEach((row) => {
       info.push(row)
     });
+    
+    if(info.lugar == null){
+      return res.status(400).json({error: "no existe ese lugar"})
+    }
+
     res.status(200).json({ length: info.length, data: info })
   });
 };
@@ -202,6 +207,10 @@ const getPremiosByIdAndChampion = async (req, res) => {
     rows.forEach((row) => {
       info.push(row)
     });
+
+    if(info.length == 0){
+      return res.status(400).json({error: "no existe el campeonato"})
+    }
 
     let id_campeon = info[0].id_campeon;
 
