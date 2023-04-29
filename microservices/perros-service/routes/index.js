@@ -9,6 +9,7 @@ const {
   getPerrosByName,
   getPerrosByOwnerName,
   getPerrosByOwnerCountry,
+  get10PerrosByPeso
 } = require("../controllers/perros-controller.js");
 
 router.get("/", getPerros);
@@ -18,4 +19,5 @@ router.get("/peso/:peso", getPerrosByPeso);
 router.get("/name/:nombre", getPerrosByName);
 router.get("/ownerName/:nombre", getPerrosByOwnerName);
 router.get("/country/:country", getPerrosByOwnerCountry);
+router.get("/perrosTop", get10PerrosByPeso);
 module.exports = router;
