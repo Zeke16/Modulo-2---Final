@@ -25,5 +25,5 @@ router.get("/country/:country", getPremiosByCountry);
 router.get("/reward/:reward", getPremiosByReward);
 router.get("/score/:score", getPremiosByScore);
 router.get("/placeReward/", getPremiosByLugarAndReward)
-router.get("/promedio/", getPremiosByPromedio)
+router.get("/promedio/:lugar", getPremiosByPromedio)
 module.exports = router;

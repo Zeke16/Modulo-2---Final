@@ -167,7 +167,7 @@ const getPremiosByLugarAndReward = async (req, res) => {
       } else if (String(condicion).includes("<")) {
         let valor = condicion.split("<");
         return reward.premio < valor[1];
-      }else if (String(condicion).includes("=")) {
+      } else if (String(condicion).includes("=")) {
         let valor = condicion.split("=");
         console.log("igual");
         return reward.premio == valor[1];
@@ -181,40 +181,13 @@ const getPremiosByLugarAndReward = async (req, res) => {
 const getPremiosByPromedio = async (req, res) => {
   let info = [];
 
-  db.all(`SELECT AVG(premio) as promedio FROM campeonatos WHERE lugar = ${req.params.lugar}`, (err, rows) => {
+  db.all(`SELECT lugar, AVG(premio) as promedio FROM campeonatos WHERE lugar = '${req.params.lugar}'`, (err, rows) => {
     if (err) {
       console.error(err.message);
     }
     rows.forEach((row) => {
       info.push(row)
     });
-    //Obtener los campeonatos por lugar
-    const premiosByPlace = info.filter((premio) => {
-      return premio.lugar == req.query.lugar
-    });
-
-    //Obtener los campeonatos por premio monetario
-    const premiosByReward = premiosByPlace.filter((reward) => {
-      let condicion = req.query.premio;
-      if (String(condicion).includes(">") && String(condicion).includes("=")) {
-        let valor = condicion.split(">=");
-        return reward.premio >= valor[1];
-      } else if (String(condicion).includes("<") && String(condicion).includes("=")) {
-        let valor = condicion.split("<=");
-        return reward.premio <= valor[1];
-      } else if (String(condicion).includes(">")) {
-        let valor = condicion.split(">");
-        return reward.premio > valor[1];
-      } else if (String(condicion).includes("<")) {
-        let valor = condicion.split("<");
-        return reward.premio < valor[1];
-      }else if (String(condicion).includes("=")) {
-        let valor = condicion.split("=");
-        console.log("igual");
-        return reward.premio == valor[1];
-      }
-    })
-
     res.status(200).json({ length: info.length, data: info })
   });
 };
